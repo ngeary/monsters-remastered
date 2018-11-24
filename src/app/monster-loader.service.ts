@@ -6,10 +6,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MonsterLoaderService {
 
   constructor(private http: HttpClient) {}
-  myData: any;
+
+  // myData: any;
 
   listMons() {
     this.http.get('assets/data/animal-monsters.json').subscribe(data => {

@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { Monster } from '../monster';
+import { MonsterLoaderService } from '../monster-loader.service';
+import { AppSettings } from '../app-settings';
 
 @Component({
   selector: 'app-player-monster',
   templateUrl: './player-monster.component.html',
   styleUrls: ['./player-monster.component.css']
 })
-export class PlayerMonsterComponent implements OnInit {
+export class PlayerMonsterComponent extends Monster implements OnInit {
 
-  constructor() { }
+  min: number;
+  max: number;
+
+  constructor(public monsterLoader: MonsterLoaderService) {
+    super(monsterLoader);
+    this.min = AppSettings.MINMONSTER;
+    this.max = AppSettings.MAXMONSTER;
+  }
 
   ngOnInit() {
   }

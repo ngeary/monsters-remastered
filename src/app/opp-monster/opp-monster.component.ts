@@ -10,14 +10,15 @@ import { AppSettings } from '../app-settings';
   styleUrls: ['./opp-monster.component.css']
 })
 export class OppMonsterComponent extends Monster implements OnInit {
-  monsterNum: number;
-  monster: Monster;
+
   monsterTypeId: number;
   min: number;
+  max: number;
 
   constructor(private menuChoice: MenuChoiceService, public monsterLoader: MonsterLoaderService) {
     super(monsterLoader);
     this.min = AppSettings.MINMONSTER;
+    this.max = AppSettings.MAXMONSTER;
    }
 
   ngOnInit() {
