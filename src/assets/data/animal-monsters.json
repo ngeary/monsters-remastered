@@ -1,41 +1,41 @@
 [{
-    "id": "10",
-    "name": "Armadillo",
+	"id": "10",
+	"name": "Armadillo",
 	"img": "assets/img/monsters/armadillo.jpg"
 }, {
-    "id": "11",
-    "name": "Beetle",
+	"id": "11",
+	"name": "Beetle",
 	"img": "assets/img/monsters/beetle.jpg"
 }, {
-    "id": "12",
-    "name": "Crocodile",
+	"id": "12",
+	"name": "Crocodile",
 	"img": "assets/img/monsters/crocodile.jpg"
 }, {
-    "id": "13",
-    "name": "Donkey",
+	"id": "13",
+	"name": "Donkey",
 	"img": "assets/img/monsters/donkey.jpg"
 }, {
-    "id": "14",
-    "name": "Elephant",
+	"id": "14",
+	"name": "Elephant",
 	"img": "assets/img/monsters/elephant.jpg"
 }, {
-    "id": "15",
-    "name": "Falcon",
+	"id": "15",
+	"name": "Falcon",
 	"img": "assets/img/monsters/falcon.jpg"
 }, {
-    "id": "16",
-    "name": "Giraffe",
+	"id": "16",
+	"name": "Giraffe",
 	"img": "assets/img/monsters/giraffe.jpg"
 }, {
-    "id": "17",
-    "name": "Hyena",
+	"id": "17",
+	"name": "Hyena",
 	"img": "assets/img/monsters/hyena.jpg"
 }, {
-    "id": "18",
-    "name": "Iguana",
+	"id": "18",
+	"name": "Iguana",
 	"img": "assets/img/monsters/iguana.jpg"
 }, {
-    "id": "19",
-    "name": "Jaguar",
+	"id": "19",
+	"name": "Jaguar",
 	"img": "assets/img/monsters/jaguar.jpg"
 }]
