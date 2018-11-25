@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Monster } from '../monster';
+import { MonsterType } from '../monster-type';
 import { MonsterLoaderService } from '../monster-loader.service';
 import { AppSettings } from '../app-settings';
 
@@ -8,7 +8,7 @@ import { AppSettings } from '../app-settings';
   templateUrl: './player-monster.component.html',
   styleUrls: ['./player-monster.component.css']
 })
-export class PlayerMonsterComponent extends Monster implements OnInit {
+export class PlayerMonsterComponent extends MonsterType implements OnInit {
 
   min: number;
   max: number;

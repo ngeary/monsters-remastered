@@ -1,29 +1,14 @@
-import { MonsterLoaderService } from './monster-loader.service';
+import { MonsterType } from './monster-type';
 
 export class Monster {
-  // TODO: monsterTypes needs to be static
-  monsterTypes: Monster[];
-  id: number;
-  name: string;
-  img: string;
 
-  constructor(public monsterLoader: MonsterLoaderService) {}
+    monsterType: MonsterType;
+    serialNum: number;
+    static numMons: number;
 
-  loadMonsterTypes() {
-    this.monsterLoader.getMonsterTypes().subscribe(mons => this.monsterTypes = mons);
-  }
-
-  /*
-  getMonsterTypeById(targetId: number): Monster {
-    this.loadMonsterTypes();
-    console.log(this.monsterTypes[1].name);
-    for (const mt of this.monsterTypes) {
-      if (mt.id === targetId) {
-        return mt;
-      }
+    constructor(mt: MonsterType) {
+        this.monsterType = mt;
+        this.serialNum = 917;
     }
-    return null;
-  }
-  */
 
 }

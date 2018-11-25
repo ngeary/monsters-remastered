@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Monster } from './monster';
+import { MonsterType } from './monster-type';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,8 +19,8 @@ export class MonsterLoaderService {
     });
   }
 
-  getMonsterTypes(): Observable<Monster[]> {
-    return this.http.get<Monster[]>('assets/data/animal-monsters.json');
+  getMonsterTypes(): Observable<MonsterType[]> {
+    return this.http.get<MonsterType[]>('assets/data/animal-monsters.json');
   }
 
 }

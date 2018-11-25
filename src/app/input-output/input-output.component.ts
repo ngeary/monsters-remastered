@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { FormBuilder, FormGroup } from '@angular/forms';
 import { MenuChoiceService } from '../menu-choice.service';
-import { RngService } from '../rng.service';
-import { AppSettings } from '../app-settings';
+import { WildMonsterService } from '../wild-monster.service';
 
 @Component({
   selector: 'app-input-output',
@@ -11,52 +9,33 @@ import { AppSettings } from '../app-settings';
 })
 
 export class InputOutputComponent implements OnInit {
-  // public radioGroupForm: FormGroup;
 
   monsterTypeId: number;
-  randNum: number;
-  min: number;
-  max: number;
   oppMonsterStatus: number;
   message: string;
 
   constructor(
-    // private formBuilder: FormBuilder,
     private menuChoice: MenuChoiceService,
-    private rng: RngService) { }
+    private wildMonster: WildMonsterService) { }
 
   ngOnInit() {
-    // this.radioGroupForm = this.formBuilder.group({
-    //   'choice': 1
-    // });
     this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterTypeId = monsterNum);
     this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
-    this.min = AppSettings.MINMONSTER;
-    this.max = AppSettings.MAXMONSTER;
+    this.wildMonster.message.subscribe(msg => this.message = msg);
   }
 
   encounterMonster() {
-    this.randNum = this.rng.getRandomInRange(AppSettings.MINMONSTER, AppSettings.MAXMONSTER);
-    this.menuChoice.changeMonsterNum(this.randNum);
-    this.menuChoice.changeOppMonsterStatus(1);
+    this.wildMonster.encounterMonster();
     this.message = null;
   }
 
   runAway() {
-    this.menuChoice.clearMonster();
+    this.wildMonster.runAway();
     this.message = null;
   }
 
   throwMonsterBall() {
-    console.log('You threw a MonsterBall!');
-    this.randNum = this.rng.getRandomInRange(1,100);
-    if (this.randNum > 75) {
-      this.message = 'You caught the monster!';
-      this.menuChoice.clearMonster();
-    } else {
-      this.message = 'The monster escaped!';
-    }
-
+    this.wildMonster.throwMonsterBall();
   }
 
 }
