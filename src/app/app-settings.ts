@@ -1,4 +1,4 @@
+export const catchThreshold = 75;
+
 export class AppSettings {
-    public static MINMONSTER = 10;
-    public static MAXMONSTER = 19;
 }

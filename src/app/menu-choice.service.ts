@@ -1,24 +1,22 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-// import { Monster } from './monster';
-// import { MonsterType } from './monster-type';
+import { Monster } from './monster';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuChoiceService {
 
-  private monsterSource = new BehaviorSubject<number>(-1);
+  private monsterSource = new BehaviorSubject<Monster>(null);
   public currentMonster = this.monsterSource.asObservable();
+
   private oppMonsterStatusSource = new BehaviorSubject<number>(-1);
   public oppMonsterStatus = this.oppMonsterStatusSource.asObservable();
-  // public trialMonster: Monster;
 
   constructor() { }
 
-  public changeMonsterNum(monsterNum: number) {
-    this.monsterSource.next(monsterNum);
-    // this.trialMonster = new Monster(MonsterType.monsterTypes[1]);
+  public changeMonster(newMon: Monster) {
+    this.monsterSource.next(newMon);
   }
 
   public changeOppMonsterStatus(status: number) {
@@ -26,7 +24,7 @@ export class MenuChoiceService {
   }
 
   public clearMonster() {
-    this.monsterSource.next(-1);
+    this.monsterSource.next(null);
     this.oppMonsterStatusSource.next(0);
   }
 

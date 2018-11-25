@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuChoiceService } from '../menu-choice.service';
 import { MonsterType } from '../monster-type';
+import { Monster } from '../monster';
 import { MonsterLoaderService } from '../monster-loader.service';
-import { AppSettings } from '../app-settings';
 
 @Component({
   selector: 'app-opp-monster',
@@ -11,8 +11,7 @@ import { AppSettings } from '../app-settings';
 })
 export class OppMonsterComponent extends MonsterType implements OnInit {
 
-  monsterTypeId: number;
-  min: number;
+  curMonster: Monster;
   oppMonsterStatus: number;
 
   constructor(private menuChoice: MenuChoiceService, public monsterLoader: MonsterLoaderService) {
@@ -21,8 +20,7 @@ export class OppMonsterComponent extends MonsterType implements OnInit {
 
   ngOnInit() {
     super.loadMonsterTypes();
-    this.min = AppSettings.MINMONSTER;
-    this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterTypeId = monsterNum);
+    this.menuChoice.currentMonster.subscribe(mon => this.curMonster = mon);
     this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
   }
 

@@ -11,14 +11,6 @@ export class MonsterLoaderService {
 
   constructor(private http: HttpClient) {}
 
-  // myData: any;
-
-  listMons() {
-    this.http.get('assets/data/animal-monsters.json').subscribe(data => {
-      console.log(data);
-    });
-  }
-
   getMonsterTypes(): Observable<MonsterType[]> {
     return this.http.get<MonsterType[]>('assets/data/animal-monsters.json');
   }

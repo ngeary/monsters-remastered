@@ -10,7 +10,6 @@ import { WildMonsterService } from '../wild-monster.service';
 
 export class InputOutputComponent implements OnInit {
 
-  monsterTypeId: number;
   oppMonsterStatus: number;
   message: string;
 
@@ -19,19 +18,16 @@ export class InputOutputComponent implements OnInit {
     private wildMonster: WildMonsterService) { }
 
   ngOnInit() {
-    this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterTypeId = monsterNum);
     this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
     this.wildMonster.message.subscribe(msg => this.message = msg);
   }
 
   encounterMonster() {
     this.wildMonster.encounterMonster();
-    this.message = null;
   }
 
   runAway() {
     this.wildMonster.runAway();
-    this.message = null;
   }
 
   throwMonsterBall() {

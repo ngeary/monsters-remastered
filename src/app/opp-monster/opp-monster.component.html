@@ -1,6 +1,6 @@
 <div *ngIf="oppMonsterStatus == 1">
   <p class="text-right">
-    A wild {{staticMonsterTypes[monsterTypeId - min].name}} appeared!
+    A wild {{curMonster.monsterType.name}} appeared! Num = {{curMonster.serialNum}}.
   </p>
-  <img [src]="staticMonsterTypes[monsterTypeId-min].img" class="img-fluid rounded float-right" style="max-width: 100%; height: auto" alt="monster image">
+  <img [src]="curMonster.monsterType.img" class="img-fluid rounded float-right" style="max-width: 100%; height: auto" alt="monster image">
 </div>

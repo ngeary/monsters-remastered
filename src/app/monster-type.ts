@@ -1,7 +1,7 @@
 import { MonsterLoaderService } from './monster-loader.service';
 
 export class MonsterType {
-  // TODO: monsterTypes needs to be static
+
   public static monsterTypes: MonsterType[];
   id: number;
   name: string;
@@ -16,4 +16,5 @@ export class MonsterType {
   get staticMonsterTypes() {
     return MonsterType.monsterTypes;
   }
+
 }
