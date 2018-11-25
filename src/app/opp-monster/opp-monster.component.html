@@ -1,4 +1,4 @@
-<div *ngIf="monsterTypes && monsterTypeId >= min && monsterTypeId <= max">
+<div *ngIf="oppMonsterStatus == 1">
   <p class="text-right">
     A wild {{monsterTypes[monsterTypeId - min].name}} appeared!
   </p>

@@ -14,16 +14,18 @@ export class OppMonsterComponent extends Monster implements OnInit {
   monsterTypeId: number;
   min: number;
   max: number;
+  oppMonsterStatus: number;
 
   constructor(private menuChoice: MenuChoiceService, public monsterLoader: MonsterLoaderService) {
     super(monsterLoader);
-    this.min = AppSettings.MINMONSTER;
-    this.max = AppSettings.MAXMONSTER;
    }
 
   ngOnInit() {
     super.loadMonsterTypes();
+    this.min = AppSettings.MINMONSTER;
+    this.max = AppSettings.MAXMONSTER;
     this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterTypeId = monsterNum);
+    this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
   }
 
 }

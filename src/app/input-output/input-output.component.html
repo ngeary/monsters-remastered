@@ -34,6 +34,28 @@
 -->
 
 <div class="container">
-  <button (click)="encounterMonster()">Encounter a monster</button>
-  <button (click)="runAway()">Run away</button>
+  <div class="row">
+  <div class="col">
+      <button (click)="encounterMonster()" [disabled]="oppMonsterStatus == 1 || oppMonsterStatus == 2">Encounter a monster</button>
+      <button (click)="runAway()" [disabled]="oppMonsterStatus != 1">Run away</button>
+      <button (click)="throwMonsterBall()" [disabled]="oppMonsterStatus != 1">Throw MonsterBall</button>
+  </div>
+  <div class="col">
+    <div *ngIf="message">
+      {{message}}
+    </div>
+  </div>
+
 </div>
+
+
+<!--
+  <div class="col">
+      <div *ngIf="monsterTypeId >= min && monsterTypeId <= max; else noMonster">
+        There is a monster.
+      </div>
+  </div>
+<ng-template #noMonster>
+  There is no monster.
+</ng-template>
+-->

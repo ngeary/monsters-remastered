@@ -6,8 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MenuChoiceService {
 
-  private monsterSource = new BehaviorSubject<number>(3);
+  private monsterSource = new BehaviorSubject<number>(-1);
   public currentMonster = this.monsterSource.asObservable();
+  private oppMonsterStatusSource = new BehaviorSubject<number>(-1);
+  public oppMonsterStatus = this.oppMonsterStatusSource.asObservable();
 
   constructor() { }
 
@@ -15,11 +17,14 @@ export class MenuChoiceService {
     this.monsterSource.next(monsterNum);
   }
 
+  public changeOppMonsterStatus(status: number) {
+    this.oppMonsterStatusSource.next(status);
+  }
+
   public clearMonster() {
-    // set the monster type ID to -1; this effectively hides the
-    // opp-monster component because opp-monster.component.html
-    // has logic to only show if the monster type ID is in range
+    // might not be necessary to change monsterSource here
     this.monsterSource.next(-1);
+    this.oppMonsterStatusSource.next(0);
   }
 
 }

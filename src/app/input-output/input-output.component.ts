@@ -13,8 +13,12 @@ import { AppSettings } from '../app-settings';
 export class InputOutputComponent implements OnInit {
   // public radioGroupForm: FormGroup;
 
-  private monsterNum: number;
-  private randNum: number;
+  monsterTypeId: number;
+  randNum: number;
+  min: number;
+  max: number;
+  oppMonsterStatus: number;
+  message: string;
 
   constructor(
     // private formBuilder: FormBuilder,
@@ -25,16 +29,34 @@ export class InputOutputComponent implements OnInit {
     // this.radioGroupForm = this.formBuilder.group({
     //   'choice': 1
     // });
-    this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterNum = monsterNum);
+    this.menuChoice.currentMonster.subscribe(monsterNum => this.monsterTypeId = monsterNum);
+    this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
+    this.min = AppSettings.MINMONSTER;
+    this.max = AppSettings.MAXMONSTER;
   }
 
   encounterMonster() {
     this.randNum = this.rng.getRandomInRange(AppSettings.MINMONSTER, AppSettings.MAXMONSTER);
     this.menuChoice.changeMonsterNum(this.randNum);
+    this.menuChoice.changeOppMonsterStatus(1);
+    this.message = null;
   }
 
   runAway() {
     this.menuChoice.clearMonster();
+    this.message = null;
+  }
+
+  throwMonsterBall() {
+    console.log('You threw a MonsterBall!');
+    this.randNum = this.rng.getRandomInRange(1,100);
+    if (this.randNum > 75) {
+      this.message = 'You caught the monster!';
+      this.menuChoice.clearMonster();
+    } else {
+      this.message = 'The monster escaped!';
+    }
+
   }
 
 }

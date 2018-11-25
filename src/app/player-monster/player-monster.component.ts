@@ -15,11 +15,11 @@ export class PlayerMonsterComponent extends Monster implements OnInit {
 
   constructor(public monsterLoader: MonsterLoaderService) {
     super(monsterLoader);
-    this.min = AppSettings.MINMONSTER;
-    this.max = AppSettings.MAXMONSTER;
   }
 
   ngOnInit() {
+    this.min = AppSettings.MINMONSTER;
+    this.max = AppSettings.MAXMONSTER;
   }
 
 }

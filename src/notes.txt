@@ -1,0 +1,4 @@
+oppMonsterStatus:
+    1 -> There is a wild monster
+    2 -> There is an opponent trainer monster
+    Anything else -> No monster present
