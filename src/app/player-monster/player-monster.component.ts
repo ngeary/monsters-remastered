@@ -10,16 +10,11 @@ import { AppSettings } from '../app-settings';
 })
 export class PlayerMonsterComponent extends MonsterType implements OnInit {
 
-  min: number;
-  max: number;
-
   constructor(public monsterLoader: MonsterLoaderService) {
     super(monsterLoader);
   }
 
   ngOnInit() {
-    this.min = AppSettings.MINMONSTER;
-    this.max = AppSettings.MAXMONSTER;
   }
 
 }
