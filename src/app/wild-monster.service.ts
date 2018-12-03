@@ -5,6 +5,7 @@ import { MonsterLoaderService } from './monster-loader.service';
 import { RngService } from './rng.service';
 import { Monster } from './monster';
 import { MonsterType } from './monster-type';
+import { PlayerComponent } from './player/player.component';
 import { catchThreshold } from './app-settings';
 
 @Injectable({

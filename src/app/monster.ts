@@ -2,9 +2,9 @@ import { MonsterType } from './monster-type';
 
 export class Monster {
 
+    public static monsterCounter = 100;
     public monsterType: MonsterType;
     public serialNum: number;
-    public static monsterCounter = 100;
 
     constructor(mt: MonsterType) {
         this.monsterType = mt;
