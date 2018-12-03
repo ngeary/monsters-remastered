@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MonsterType } from './monster-type';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,15 @@ import { Observable } from 'rxjs';
 
 export class MonsterLoaderService {
 
+  public mts: MonsterType[];
+  private monsterTypesSource = new BehaviorSubject<MonsterType[]>(null);
+  public monsterTypes = this.monsterTypesSource.asObservable();
+
   constructor(private http: HttpClient) {}
 
-  getMonsterTypes(): Observable<MonsterType[]> {
-    return this.http.get<MonsterType[]>('assets/data/animal-monsters.json');
+  loadMonsterTypes() {
+    this.http.get<MonsterType[]>('assets/data/animal-monsters.json').subscribe(mons => this.mts = mons);
+    this.monsterTypesSource.next(this.mts);
   }
 
 }

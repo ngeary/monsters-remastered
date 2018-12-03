@@ -9,17 +9,17 @@ import { MonsterLoaderService } from '../monster-loader.service';
   templateUrl: './opp-monster.component.html',
   styleUrls: ['./opp-monster.component.css']
 })
-export class OppMonsterComponent extends MonsterType implements OnInit {
+export class OppMonsterComponent implements OnInit {
 
   curMonster: Monster;
   oppMonsterStatus: number;
+  monsterTypes: MonsterType[];
 
-  constructor(private menuChoice: MenuChoiceService, public monsterLoader: MonsterLoaderService) {
-    super(monsterLoader);
-   }
+  constructor(private menuChoice: MenuChoiceService, public monsterLoader: MonsterLoaderService) {}
 
   ngOnInit() {
-    super.loadMonsterTypes();
+    this.monsterLoader.loadMonsterTypes();
+    this.monsterLoader.monsterTypes.subscribe(mts => this.monsterTypes = mts);
     this.menuChoice.currentMonster.subscribe(mon => this.curMonster = mon);
     this.menuChoice.oppMonsterStatus.subscribe(status => this.oppMonsterStatus = status);
   }
