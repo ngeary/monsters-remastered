@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player';
 import { Monster } from '../monster';
-import { MenuChoiceService } from '../menu-choice.service';
+import { MenuChoiceService } from '../services/menu-choice.service';
 
 @Component({
   selector: 'app-player',

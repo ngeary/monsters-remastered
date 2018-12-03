@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuChoiceService } from '../menu-choice.service';
+import { MenuChoiceService } from '../services/menu-choice.service';
 import { MonsterType } from '../monster-type';
 import { Monster } from '../monster';
-import { MonsterLoaderService } from '../monster-loader.service';
+import { MonsterLoaderService } from '../services/monster-loader.service';
 
 @Component({
   selector: 'app-opp-monster',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuChoiceService } from '../menu-choice.service';
-import { WildMonsterService } from '../wild-monster.service';
+import { MenuChoiceService } from '../services/menu-choice.service';
+import { WildMonsterService } from '../services/wild-monster.service';
 
 @Component({
   selector: 'app-input-output',
