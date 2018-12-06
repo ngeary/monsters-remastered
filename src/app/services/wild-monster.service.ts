@@ -5,14 +5,15 @@ import { MonsterLoaderService } from './monster-loader.service';
 import { RngService } from './rng.service';
 import { Monster } from '../monster';
 import { MonsterType } from '../monster-type';
-import { PlayerComponent } from '../player/player.component';
 import { catchThreshold } from '../app-settings';
+import { PlayerService } from './player.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WildMonsterService {
 
+  curMonster: Monster;
   private messageSource = new BehaviorSubject<string>(null);
   public message = this.messageSource.asObservable();
   private randNum: number;
@@ -21,9 +22,11 @@ export class WildMonsterService {
   constructor(
     private menuChoice: MenuChoiceService,
     private rng: RngService,
-    private monsterLoader: MonsterLoaderService) { }
+    private monsterLoader: MonsterLoaderService,
+    private playerService: PlayerService) { }
 
   encounterMonster() {
+    this.menuChoice.currentMonster.subscribe(mon => this.curMonster = mon);
     this.menuChoice.changeMonster(new Monster(this.getRandomMonsterType()));
     this.menuChoice.changeOppMonsterStatus(1);
     this.messageSource.next(null);
@@ -36,8 +39,11 @@ export class WildMonsterService {
 
   throwMonsterBall() {
     this.randNum = this.rng.getRandomInRange(1,100);
+    this.playerService.changeMoney(-10);
     if (this.randNum > catchThreshold) {
       this.messageSource.next('You caught the monster!');
+      console.log(this.curMonster.monsterType.name);
+      this.playerService.catchMonster(this.curMonster);
       this.menuChoice.clearMonster();
     } else {
       this.messageSource.next('The monster escaped!');

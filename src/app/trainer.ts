@@ -3,7 +3,7 @@ import { Monster } from './monster';
 export class Trainer {
 
     public name: string;
-    public monsters: Monster[];
+    public monsters = [];
     public money: number;
     public img: string;
 

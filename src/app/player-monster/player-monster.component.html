@@ -1,3 +1,11 @@
-<p>
-  [Player's monster]
-</p>
+<div class="container">
+  <div class="text-left">
+    Your Monsters
+  </div>
+  <hr>
+  <ul>
+    <li *ngFor="let mon of mainPlayer.monsters">
+      {{mon.monsterType.name}}
+    </li>
+  </ul>
+</div>

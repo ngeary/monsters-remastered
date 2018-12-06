@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../player';
-import { Monster } from '../monster';
-import { MenuChoiceService } from '../services/menu-choice.service';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-player',
@@ -11,13 +10,12 @@ import { MenuChoiceService } from '../services/menu-choice.service';
 export class PlayerComponent implements OnInit {
 
   public mainPlayer: Player;
-  curMonster: Monster;
 
-  constructor(private menuChoice: MenuChoiceService) { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
     this.mainPlayer = new Player();
-    this.menuChoice.currentMonster.subscribe(mon => this.curMonster = mon);
+    this.playerService.mainPlayer.subscribe(mp => this.mainPlayer = mp);
   }
 
 }

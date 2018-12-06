@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Player } from '../player';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-player-monster',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerMonsterComponent implements OnInit {
 
-  constructor() {
+  mainPlayer: Player;
+
+  constructor(private playerService: PlayerService) {
   }
 
   ngOnInit() {
+    this.mainPlayer = new Player();
+    this.playerService.mainPlayer.subscribe(mp => this.mainPlayer = mp);
   }
 
 }
