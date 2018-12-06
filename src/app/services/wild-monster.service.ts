@@ -42,7 +42,6 @@ export class WildMonsterService {
     this.playerService.changeMoney(-10);
     if (this.randNum > catchThreshold) {
       this.messageSource.next('You caught the monster!');
-      console.log(this.curMonster.monsterType.name);
       this.playerService.catchMonster(this.curMonster);
       this.menuChoice.clearMonster();
     } else {
