@@ -1,41 +1,91 @@
 [{
 	"id": "10",
 	"name": "Armadillo",
-	"img": "assets/img/monsters/armadillo.jpg"
+	"baseMaxHp": "16",
+	"baseAttack": "10",
+	"baseDefense": "18",
+	"baseSpeed": "11",
+	"baseDifficulty": "13",
+	"img": "assets/img/monsters/armadillo.jpg" 
 }, {
 	"id": "11",
 	"name": "Beetle",
+	"baseMaxHp": "10",
+	"baseAttack": "14",
+	"baseDefense": "14",
+	"baseSpeed": "14",
+	"baseDifficulty": "10",
 	"img": "assets/img/monsters/beetle.jpg"
 }, {
 	"id": "12",
 	"name": "Crocodile",
+	"baseMaxHp": "15",
+	"baseAttack": "19",
+	"baseDefense": "16",
+	"baseSpeed": "15",
+	"baseDifficulty": "18",
 	"img": "assets/img/monsters/crocodile.jpg"
 }, {
 	"id": "13",
 	"name": "Donkey",
+	"baseMaxHp": "15",
+	"baseAttack": "16",
+	"baseDefense": "12",
+	"baseSpeed": "10",
+	"baseDifficulty": "11",
 	"img": "assets/img/monsters/donkey.jpg"
 }, {
 	"id": "14",
 	"name": "Elephant",
+	"baseMaxHp": "19",
+	"baseAttack": "12",
+	"baseDefense": "18",
+	"baseSpeed": "11",
+	"baseDifficulty": "16",
 	"img": "assets/img/monsters/elephant.jpg"
 }, {
 	"id": "15",
 	"name": "Falcon",
+	"baseMaxHp": "11",
+	"baseAttack": "14",
+	"baseDefense": "11",
+	"baseSpeed": "19",
+	"baseDifficulty": "16",
 	"img": "assets/img/monsters/falcon.jpg"
 }, {
 	"id": "16",
 	"name": "Giraffe",
+	"baseMaxHp": "13",
+	"baseAttack": "13",
+	"baseDefense": "12",
+	"baseSpeed": "15",
+	"baseDifficulty": "14",
 	"img": "assets/img/monsters/giraffe.jpg"
 }, {
 	"id": "17",
 	"name": "Hyena",
+	"baseMaxHp": "13",
+	"baseAttack": "17",
+	"baseDefense": "12",
+	"baseSpeed": "17",
+	"baseDifficulty": "17",
 	"img": "assets/img/monsters/hyena.jpg"
 }, {
 	"id": "18",
 	"name": "Iguana",
+	"baseMaxHp": "14",
+	"baseAttack": "12",
+	"baseDefense": "13",
+	"baseSpeed": "12",
+	"baseDifficulty": "13",
 	"img": "assets/img/monsters/iguana.jpg"
 }, {
 	"id": "19",
 	"name": "Jaguar",
+	"baseMaxHp": "15",
+	"baseAttack": "18",
+	"baseDefense": "15",
+	"baseSpeed": "18",
+	"baseDifficulty": "19",
 	"img": "assets/img/monsters/jaguar.jpg"
 }]

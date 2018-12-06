@@ -1,6 +1,18 @@
 <div *ngIf="oppMonsterStatus == 1">
-  <p class="text-right">
-    A wild {{curMonster.monsterType.name}} appeared!
-  </p>
-  <img [src]="curMonster.monsterType.img" class="img-fluid rounded float-right" style="max-width: 100%; height: auto" alt="monster image">
+    <div class="container text-left">
+      <div class="text-right">A wild {{curMonster.monsterType.name}} appeared!</div>
+      <div class="row">
+        <div class="col">
+          <div>Level: {{curMonster.level}}</div>
+          <div>HP: {{curMonster.curHp}}</div>
+          <div>Attack: {{curMonster.attack}}</div>
+          <div>Defense: {{curMonster.defense}}</div>
+          <div>Speed: {{curMonster.speed}}</div>
+          <div>Difficulty: {{curMonster.difficulty}}</div>
+        </div>
+        <div class="col">
+          <img [src]="curMonster.monsterType.img" class="img-fluid rounded float-right" style="max-width: 100%; height: auto" alt="monster image">
+        </div>
+      </div>
+    </div>
 </div>
